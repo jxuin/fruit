@@ -1,6 +1,6 @@
 <?php
 require('../class/ConnectionMySQL.php');
-require('../util/Cache.class.php');
+require('../util/Util.php');
 require('../config.php');
 
 header('Content-Type: text/html; charset=utf-8');
@@ -33,6 +33,10 @@ if (!empty($updatecache) || empty($jsondata)) {
 if (empty($jsondata)) {
 	$jsondata = '[]';
 }
+$util = new Util();
+
+$jsondata = $util->ob_gzip($jsondata);
+
 echo $jsondata;
 
 $db->close();

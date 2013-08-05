@@ -31,6 +31,17 @@ class Util{
 		$data = $_SERVER['HTTP_USER_AGENT'] . $_SERVER['REMOTE_ADDR'] .time() . rand();
 		return sha1($data);
 	}
-}
 
-?>
+	function ob_gzip($content)
+	{
+		if( !headers_sent() && extension_loaded("zlib") && strstr($_SERVER["HTTP_ACCEPT_ENCODING"],"gzip"))
+		{
+			$content = gzencode($content,5); 
+			header("Content-Encoding: gzip");
+			header("Vary: Accept-Encoding");
+			header("Content-Length: ".strlen($content));
+		}
+		return $content;
+	}
+	
+} ?>

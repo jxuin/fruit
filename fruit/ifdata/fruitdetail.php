@@ -1,18 +1,12 @@
 <?php
-	require('../class/ConnectionMySQL.php');
-	require('../util/Cache.class.php');
-	require('../config.php');
-	
-	require_once ('BaeMemcache.class.php');
-	
 	header('Content-Type: text/html; charset=utf-8');
-	
+	require('../class/ConnectionMySQL.php');
+	require('../util/Util.php');
+	require('../config.php');
+//	require_once ('BaeMemcache.class.php');
 //	$mem = new Memcache; 
-	
-   	$mem = new BaeMemcache();
-	
+//  $mem = new BaeMemcache();
 //	$mem->connect('127.0.0.1',11211) or die("连接失败"); 
-	
 	$db = new ConnectionMySQL();
 	
 	$cache = new Cache(CACHE_TIMEOUT, realpath(CACHE_PATH). '/');
@@ -30,7 +24,7 @@
 	
 	$cachekey = 'fruitdetail_'.$fruitid;
 	
-	$jsondata = $mem->get($cachekey);
+//	$jsondata = $mem->get($cachekey);
 	
 	if (!empty($updatecache) || empty($jsondata)) {
 		
@@ -63,9 +57,13 @@
 			
 			$jsondata = json_encode($jsonobj);
 			
-			$mem->set($cachekey, $jsondata, 0, 24*60*60);
+//			$mem->set($cachekey, $jsondata, 0, 24*60*60);
 		}
 	}
+	
+	$util = new Util();
+	
+	$jsondata = $util->ob_gzip($jsondata);
 	
 	echo $jsondata;
 	
