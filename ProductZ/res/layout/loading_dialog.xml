@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loadingdialog_layout"
+    android:layout_width="200dip"
+    android:layout_height="50dip"
+    android:background="#00000000"
+    android:padding="10dp" >
+
+    <ImageView
+        android:id="@+id/loadingdialog_img"
+        android:layout_width="30dip"
+        android:layout_height="30dip"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@string/app_name"
+        android:layout_centerVertical="true"
+        android:src="@drawable/loading_img" />
+
+    <TextView
+        android:id="@+id/loadingdialog_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dip"
+        android:layout_toRightOf="@id/loadingdialog_img"
+        android:layout_centerVertical="true"
+        android:text="@string/dataloading" />
+
+</RelativeLayout>

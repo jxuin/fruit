@@ -1,0 +1,25 @@
+insert into t_shaddr (name,paddrid) value ('陲源韓綬俜','0');
+insert into t_shaddr (name,paddrid) value ('80集','1');
+insert into t_shaddr (name,paddrid) value ('81集','1');
+insert into t_shaddr (name,paddrid) value ('82集','1');
+insert into t_shaddr (name,paddrid) value ('83集','1');
+insert into t_shaddr (name,paddrid) value ('84集','1');
+insert into t_shaddr (name,paddrid) value ('85集','1');
+insert into t_shaddr (name,paddrid) value ('87集','1');
+insert into t_shaddr (name,paddrid) value ('88集','1');
+
+insert into t_shaddr (name,paddrid) value ('1等啋','2');
+insert into t_shaddr (name,paddrid) value ('2等啋','2');
+insert into t_shaddr (name,paddrid) value ('3等啋','2');
+
+insert into t_shaddr (name,paddrid) value ('101弅','10');
+insert into t_shaddr (name,paddrid) value ('102弅','10');
+insert into t_shaddr (name,paddrid) value ('103弅','10');
+insert into t_shaddr (name,paddrid) value ('104弅','10');
+insert into t_shaddr (name,paddrid) value ('105弅','10');
+insert into t_shaddr (name,paddrid) value ('106弅','10');
+insert into t_shaddr (name,paddrid) value ('107弅','10');
+insert into t_shaddr (name,paddrid) value ('108弅','10');
+insert into t_shaddr (name,paddrid) value ('109弅','10');
+insert into t_shaddr (name,paddrid) value ('110弅','10');
+insert into t_shaddr (name,paddrid) value ('111弅','10');

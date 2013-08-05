@@ -1,0 +1,210 @@
+@charset "utf-8";
+
+/* CSS Document */
+body {
+	padding-top: 60px;
+	padding-bottom: 40px;
+	font-size: 12px;
+	overflow: none;
+	overflow-y: scroll;
+	overflow: none;
+}
+
+img {
+	border: 0;
+}
+
+a {
+	border: 0;
+	text-decoration: none;
+	color: #666;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+ul,li {
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+	border: 0;
+}
+
+dl,dd {
+	padding: 0;
+	margin: 0;
+}
+
+.form-signin {
+	max-width: 300px;
+	padding: 19px 29px 29px;
+	margin: 100px auto 20px;
+	background-color: #fff;
+	border: 1px solid #e5e5e5;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	-moz-box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+	box-shadow: 0 1px 2px rgba(0, 0, 0, .05);
+}
+
+.form-signin .form-signin-heading,.form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin input[type="text"],.form-signin input[type="password"] {
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
+}
+
+.sidebar-nav {
+	padding: 9px 0;
+}
+
+.pager {
+	margin: 20px 0;
+	list-style: none;
+	text-align: center; *
+	zoom: 1;
+}
+
+.doc-sitebar {
+	-moz-box-shadow: 0 0 6px rgba(3, 3, 3, 0.6);
+	-webkit-box-shadow: 0 0 6px rgba(3, 3, 3, 0.6);
+	box-shadow: 0 0 6px rgba(3, 3, 3, 0.6);
+	height: 100%;
+	min-height: 100%;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	background: #efefef;
+	margin-bottom: 15px;
+}
+
+.index-tab {
+	height: 250px;
+}
+
+.breaddiv {
+	height: 36px;
+	border: 1px solid #dddddd;
+	background: #fafafa;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	margin-bottom: 10px;
+}
+
+.nav-list li {
+	cursor: pointer;
+}
+
+.img_shuff_1 {
+	vertical-align: text-top;
+	margin-top: -6px;
+	margin-right: 4px;
+	height: 30px;
+	width: 30px;
+}
+
+.tab-pane dl {
+	width: 100%;
+	margin: 4px 0;
+	border-bottom: 1px solid #ddd;
+}
+
+.tab-pane dd {
+	display: inline-block;
+}
+
+.recdiv {
+	width: 540px;
+	height: 100px;
+	border: 1px solid #ddd;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 6px;
+	border-radius: 6px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+/*分页*/
+.pagination {
+	float: right;
+	margin-top: 1px;
+	border: 1px solid #cdcdcd;
+	height: 26px;
+}
+
+.pagination a {
+	display: block;
+	float: left;
+	font-family: Times, 'Times New Roman', Georgia, Palatino;
+	height: 26px;
+	width: 26px;
+	color: #555555;
+	text-align: center;
+	font-weight: bold;
+	font-size: 15px;
+	vertical-align: middle;
+	line-height: 24px;
+	background: #F3F3F3;
+}
+
+.pagination a:hover,.pagination a:focus,.pagination a:active {
+	background: #cecece;
+}
+
+.pagination a.disabled,.pagination a.disabled:hover,.pagination a.disabled:focus,.pagination a.disabled:active
+	{
+	background: #F3F3F3;
+	color: #A8A8A8;
+}
+
+.pagination input {
+	border: 0px;
+	float: left;
+	text-align: center;
+	height: 18px;
+	outline: none;
+	vertical-align: middle;
+	width: 100px;
+	line-height: 18px;
+}
+
+.imgpreview {
+	display: inline-block;
+	margin: 3px 3px;
+	padding: 0 3px;
+	border: 1px solid #ddd;
+}
+
+.imgpreview .del_a {
+	font-size: 8px;
+	color: #ddd;
+	margin-left: 5px;
+}
+
+.imgprediv {
+	width: 470px;
+	border: 1px solid #f1f1f1;
+	height: 100px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.dialog_table {
+	width: 400px;
+	height: 300px;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.tipdiv {
+	padding: 5px 9px;
+	line-height: 20px;
+}

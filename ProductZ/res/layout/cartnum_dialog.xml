@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/cartnumdialog_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dip" >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/cartnum"
+            android:textColor="@color/title_bg"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/title_bg" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="70dip"
+        android:layout_gravity="center_horizontal"
+        android:padding="10dip" >
+
+        <ImageButton
+            android:id="@+id/cartnum_minus"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/minus_sign" />
+
+        <EditText
+            android:id="@+id/cartnum_num"
+            android:layout_width="100dip"
+            android:layout_height="40dip"
+            android:layout_centerInParent="true"
+            android:background="@drawable/cartedit_bg"
+            android:gravity="center"
+            android:hint="@string/detail_num1"
+            android:inputType="number"
+            android:maxLines="1"
+            android:textColor="@color/dark_gray" />
+
+        <ImageButton
+            android:id="@+id/cartnum_plus"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@color/white"
+            android:scaleType="centerInside"
+            android:contentDescription="@string/app_name"
+            android:src="@drawable/plus_sign" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="@color/gray" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dip"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/cartnum_confirm"
+            android:layout_width="0dip"
+            android:layout_height="50dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="@string/confirm"
+            android:textSize="12sp" />
+
+        <View
+            android:layout_width="1dip"
+            android:layout_height="50dip"
+            android:background="@color/gray" />
+
+        <Button
+            android:id="@+id/cartnum_cancel"
+            android:layout_width="0dip"
+            android:layout_height="50dip"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:text="@string/cancel"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+</LinearLayout>

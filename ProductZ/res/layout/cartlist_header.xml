@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dip"
+    android:background="@color/aty_bg"
+    android:descendantFocusability="blocksDescendants"
+    android:padding="10dip" >
+
+    <Button
+        android:id="@+id/cartlist_header_delbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dip"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/btn_bg"
+        android:text="@string/delete"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/cartlist_header_totalmoney"
+        android:layout_width="100dip"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="@color/red"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/cartlist_header_jsbtn"
+        android:layout_width="wrap_content"
+        android:layout_height="30dip"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/btn_bg"
+        android:text="@string/cartjs"
+        android:textSize="12sp" />
+
+</RelativeLayout>

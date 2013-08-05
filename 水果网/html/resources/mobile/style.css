@@ -1,0 +1,132 @@
+@CHARSET "UTF-8";
+
+body {
+	background-color: #fefefe;
+	font-size: 12px;
+}
+
+.fruit-header {
+	background: #fff;
+	border-top: 3px solid #6ABA2F;
+	border-bottom: 1px solid #e0e0e0;
+	color: #777;
+	text-shadow: 0 1px 0 #fff;
+	-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+	-moz-box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+	box-shadow: 0 0 5px rgba(0, 0, 0, .15);
+}
+
+.fruit-header .logo {
+	display: inline-block;
+	margin: 5px 0 0 10px;
+}
+
+.fruit-header a {
+	display: inline-block;
+	text-decoration: none;
+}
+
+.fruit-header .logo img {
+	display: block;
+	width: 35px;
+	height: auto;
+}
+
+.fruit-header .cart {
+	display: inline-block;
+	margin: 1px 55px 0 0;
+}
+
+.fruit-header .cart img {
+	display: block;
+	width: 35px;
+	height: auto;
+}
+
+.fruit-header .search {
+	display: inline-block;
+	margin: 1px 10px 0 0;
+}
+
+.fruit-header .search img {
+	display: block;
+	width: 35px;
+	height: auto;
+}
+
+.fruit-content {
+	padding-top: 0px;
+	padding-bottom: 0px;
+}
+
+.fruit-list {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.fruit-list .span-title {
+	display: inline-block;
+	margin-top: 5px;
+}
+
+.fruit-list .span-title img {
+	width: 30px;
+	height: 30px;
+	vertical-align: text-top;
+	margin-top: -6px;
+	margin-right: 10px;
+}
+
+.fruit-list .span-img {
+	width: 60px;
+	height: 45px;
+	overflow: hidden;
+	display: inline-block;
+}
+
+.fruit-list .span-img img {
+	width: 60px;
+	height: 45px;
+}
+
+.fruit-list .span-word {
+	height: 45px;
+	margin-left: 10px;
+	display: inline-block;
+}
+
+.fruit-list .span-word font {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	display: block;
+	overflow: hidden;
+	font-weight: normal;
+}
+
+.fruit-list .span-icon {
+	margin-top: -5px;
+	display: inline-block;
+}
+
+.fruit-content section {
+	padding: 10px 0px;
+	border-bottom: 1px solid #6ABA2F;
+}
+
+.section-imgs {
+	height: 100px;
+	width: 100%
+}
+
+.fruit-content section div {
+	line-height: 24px;
+}
+
+.fruit-content section div.title {
+	font-weight: bold;
+}
+
+.fruit-content section div.detail {
+	line-height: 18px;
+	text-indent: 2em;
+}

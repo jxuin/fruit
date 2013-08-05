@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dip"
+        android:background="@color/title_bg" >
+
+        <EditText
+            android:id="@+id/search_searchtext"
+            android:layout_width="200dip"
+            android:layout_height="35dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:background="@drawable/searchedit_bg"
+            android:focusable="true"
+            android:hint="@string/search"
+            android:paddingLeft="5dip"
+            android:textColor="@color/dark_gray" />
+
+        <ImageView
+            android:id="@+id/search_del"
+            android:layout_width="30dip"
+            android:layout_height="30dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="-33dip"
+            android:layout_toRightOf="@id/search_searchtext"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/del1" />
+
+        <ImageButton
+            android:id="@+id/search_btn"
+            android:layout_width="45dip"
+            android:layout_height="33dip"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/search_searchtext"
+            android:background="@drawable/searchbtn_bg"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/search" />
+
+        <ImageView
+            android:id="@+id/search_cart"
+            android:layout_width="40dip"
+            android:layout_height="40dip"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dip"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerInside"
+            android:src="@drawable/cart" />
+
+        <TextView
+            android:id="@+id/search_cartnum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-25dip"
+            android:layout_marginTop="10dip"
+            android:layout_toRightOf="@id/search_cart"
+            android:background="@drawable/cartnum_bg"
+            android:gravity="center"
+            android:maxLines="1"
+            android:paddingBottom="1dip"
+            android:paddingLeft="5dip"
+            android:paddingRight="5dip"
+            android:text="@string/detail_num1"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@+id/search_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/aty_bg" >
+    </ListView>
+
+</LinearLayout>

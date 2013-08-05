@@ -1,0 +1,10 @@
+[ConnectionProfile]
+ConnectionType=JDBC
+Dbms=MySQL
+DisableBind=0
+Driver=com.mysql.jdbc.Driver
+JarFiles=D:\ProgramFiles\DCP\mysql-connector-java-5.1.6-bin.jar
+LogId=root
+LogPassword=root
+TrimSpaces=0
+URL=jdbc:mysql://localhost:3306/fruit

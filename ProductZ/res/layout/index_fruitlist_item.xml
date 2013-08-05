@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aty_bg" >
+
+    <ImageView
+        android:id="@+id/index_fruitlist_img"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/itemSize"
+        android:contentDescription="@string/app_name"
+        android:scaleType="centerInside" />
+
+    <TextView
+        android:id="@+id/index_fruitlist_title"
+        android:layout_width="match_parent"
+        android:layout_height="20dip"
+        android:layout_below="@id/index_fruitlist_img"
+        android:gravity="center" />
+
+</RelativeLayout>

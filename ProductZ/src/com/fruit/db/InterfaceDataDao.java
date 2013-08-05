@@ -1,0 +1,28 @@
+package com.fruit.db;
+
+import com.fruit.app.SysApplication;
+import com.fruit.db.bean.InterfaceData;
+import com.j256.ormlite.dao.Dao;
+
+public class InterfaceDataDao {
+
+	private static DataHelper _dataHelper = null;
+
+	private static Dao<InterfaceData, Integer> _dao = null;
+
+	public static Dao<InterfaceData, Integer> getDao() {
+		try {
+			if (_dao == null) {
+				_dataHelper = DataHelper.getDataHelper(SysApplication._context);
+				_dao = _dataHelper.getDao(InterfaceData.class);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return _dao;
+	}
+
+	public static void close() {
+		_dao = null;
+	}
+}

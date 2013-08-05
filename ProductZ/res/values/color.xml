@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#eee9e9</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray">#808A87</color>
+    <color name="red">#ff0000</color>
+    <color name="dialog_bg">#D5D5D5</color>
+    <color name="title_bg">#2ED198</color>
+    <color name="btn_bg">#058926</color>
+    <color name="aty_bg">#F4F4F4</color>
+    <color name="transparent">#00000000</color>
+</resources>
