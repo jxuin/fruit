@@ -5,31 +5,21 @@ import java.util.concurrent.Executors;
 
 import com.fruit.adapter.FruitListAdapter;
 import com.fruit.adapter.FruitListAdapter.CartChangeListener;
-import com.fruit.bean.FruitDetail;
 import com.fruit.bean.FruitList;
+import com.fruit.fragment.FruitListFragment;
+import com.fruit.fragment.HeaderFragment;
 import com.fruit.fruitonline.R;
 import com.fruit.util.CommUtil;
 import com.fruit.util.CommViewUtil;
-import com.fruit.util.FruitUtil;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
-import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
+import android.support.v4.app.FragmentActivity;
 import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.AdapterView.OnItemClickListener;
 
-public class FruitSearchResultAty extends Activity {
+public class FruitSearchResultAty extends FragmentActivity {
 	
 	private Handler handler = new Handler();
 	
@@ -38,14 +28,6 @@ public class FruitSearchResultAty extends Activity {
 	private int _screenHeight;
 	
 	private Dialog _loadingDialog;
-	
-	private EditText _searchView;
-	
-	private ListView _listView;
-	
-	private TextView _cartnumView;
-	
-	private ImageView _cartImgView;
 	
 	private FruitList _fruitList;
 	
@@ -76,39 +58,6 @@ public class FruitSearchResultAty extends Activity {
 	}
 	
 	public void initView() {
-		
-		_listView = (ListView) findViewById(R.id.list);
-		int height = _screenHeight - CommViewUtil.dip2px(_context, 60);
-		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(CommViewUtil.MatchParent, height);
-		_listView.setLayoutParams(params);
-		
-		_searchView = (EditText) findViewById(R.id.list_search);
-		_searchView.setOnLongClickListener(new OnLongClickListener() {
-			public boolean onLongClick(View v) {
-				return false;
-			}
-		});
-		
-		_searchView.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(_context, FruitSearchAty.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(intent);
-			}
-		});
-		
-		_cartnumView = (TextView) findViewById(R.id.list_cartnum);
-		
-		_cartImgView = (ImageView) findViewById(R.id.list_cart);
-		
-		_cartImgView.setOnClickListener(new OnClickListener() {
-			public void onClick(View arg0) {
-				Intent intent = new Intent(_context, CartListAty.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(intent);
-			}
-		});
-		
 		executorService.execute(new FruitListRunnable());
 	}
 	
@@ -118,18 +67,12 @@ public class FruitSearchResultAty extends Activity {
 				handler.post(new Runnable() {
 					public void run() {
 						_fruitListAdapter = new FruitListAdapter(_context, _fruitList.getList(), new CartChangeLis());
-						_listView.setAdapter(_fruitListAdapter);
-						_listView.setOnItemClickListener(new OnItemClickListener() {
-							public void onItemClick(AdapterView<?> parent, View v, final int position, long id) {
-								FruitDetail fruitDetail = _fruitList.getList().get(position);
-								Intent intent = new Intent(_context, FruitDetailAty.class);
-								Bundle bundle = new Bundle();
-								bundle.putString("fruitid", fruitDetail.getId());
-								intent.putExtra(CommUtil.DETAIL_BUNDLE, bundle);
-								intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-								startActivity(intent);
-							}
-						});
+						FruitListFragment flf = (FruitListFragment) getSupportFragmentManager().findFragmentById(R.id.list_fragment);
+						int height = _screenHeight - CommViewUtil.dip2px(_context, 60);
+						LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(CommViewUtil.MatchParent, height);
+						flf.getView().setLayoutParams(params);
+						flf.setListAdapter(_fruitListAdapter);
+						flf.setFruitList(_fruitList);
 					}
 				});
 			} else {
@@ -140,17 +83,8 @@ public class FruitSearchResultAty extends Activity {
 	
 	class CartChangeLis implements CartChangeListener {
 		public void cartChange() {
-			cartChangeView();
-		}
-	}
-	
-	public void cartChangeView() {
-		int cartNum = FruitUtil.getCartShared().getInt("cartnum", 0);
-		if (cartNum > 0) {
-			_cartnumView.setVisibility(View.VISIBLE);
-			_cartnumView.setText(String.valueOf(cartNum));
-		} else {
-			_cartnumView.setVisibility(View.GONE);
+			HeaderFragment hf = (HeaderFragment) getSupportFragmentManager().findFragmentById(R.id.header_fragment);
+			hf.cartChangeView();
 		}
 	}
 	
@@ -174,11 +108,6 @@ public class FruitSearchResultAty extends Activity {
 			_loadingDialog = null;
 		}
 		return flag;
-	}
-	
-	protected void onResume() {
-		super.onResume();
-		cartChangeView();
 	}
 
 }

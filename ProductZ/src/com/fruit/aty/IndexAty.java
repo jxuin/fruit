@@ -12,28 +12,23 @@ import com.fruit.json.JsonUrlParams;
 import com.fruit.json.JsonUtil;
 import com.fruit.util.CommUtil;
 import com.fruit.util.CommViewUtil;
-import com.fruit.util.FruitUtil;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.view.KeyEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
-import android.view.View.OnLongClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.EditText;
 import android.widget.GridView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-public class IndexAty extends Activity {
+public class IndexAty extends FragmentActivity {
 	
 	private Handler handler = new Handler();
 	
@@ -43,13 +38,7 @@ public class IndexAty extends Activity {
 	
 	private Dialog _loadingDialog;
 	
-	private EditText _searchView;
-	
 	private GridView _gridView;
-	
-	private TextView _cartnumView;
-	
-	private ImageView _cartImgView;
 	
 	private FruitListGridAdapter _fruitListGridAdapter;
 	
@@ -75,15 +64,9 @@ public class IndexAty extends Activity {
 		initView();
 	}
 	
-	final static int MESSAGE_1 = 1;
-	final static int MESSAGE_2 = 2;
-	
-	Handler mHandler;
-	
 	public void initParams() {
 		int[] screenParams = CommViewUtil.initScreenParams(IndexAty.this);
 		_screenHeight = CommUtil.getIntVal(screenParams[1], 1000);
-		
 	}
 	
 	public void initView() {
@@ -93,36 +76,7 @@ public class IndexAty extends Activity {
 		LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(CommViewUtil.MatchParent, height);
 		_gridView.setLayoutParams(params);
 		
-		_searchView = (EditText) findViewById(R.id.index_search);
-		
-		_searchView.setOnLongClickListener(new OnLongClickListener() {
-			public boolean onLongClick(View v) {
-				return false;
-			}
-		});
-		
-		_searchView.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
-				Intent intent = new Intent(_context, FruitSearchAty.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(intent);
-			}
-		});
-		
-		_cartnumView = (TextView) findViewById(R.id.index_cartnum);
-		
-		_cartImgView = (ImageView) findViewById(R.id.index_cart);
-		
-		_cartImgView.setOnClickListener(new OnClickListener() {
-			public void onClick(View arg0) {
-				Intent intent = new Intent(_context, CartListAty.class);
-				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-				startActivity(intent);
-			}
-		});
-		
 		executorService.execute(new FruitListRunnable());
-		
 	}
 	
 	class FruitListRunnable implements Runnable {
@@ -157,16 +111,6 @@ public class IndexAty extends Activity {
 		}
 	}
 	
-	public void cartChangeView() {
-		int cartNum = FruitUtil.getCartShared().getInt("cartnum", 0);
-		if (cartNum > 0) {
-			_cartnumView.setVisibility(View.VISIBLE);
-			_cartnumView.setText(String.valueOf(cartNum));
-		} else {
-			_cartnumView.setVisibility(View.GONE);
-		}
-	}
-	
 	public synchronized void showLoadingDialog(String contentStr) {
 		if ("".equals(CommUtil.getStrVal(contentStr))) {
 			contentStr = getResources().getString(R.string.loadingdialog_str1);
@@ -197,17 +141,13 @@ public class IndexAty extends Activity {
 	            Toast.makeText(getApplicationContext(), "再按一次退出程序", Toast.LENGTH_SHORT).show();                                
 	            exitTime = System.currentTimeMillis();   
 	        } else {
+	        	ImageLoader.getInstance().clearMemoryCache();
 	        	finish();
 	            System.exit(0);
 	        }
 	        return true;   
 	    }
 	    return super.onKeyDown(keyCode, event);
-	}
-	
-	protected void onResume() {
-		super.onResume();
-		cartChangeView();
 	}
 
 }

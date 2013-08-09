@@ -1,16 +1,14 @@
 package com.fruit.adapter;
 
-import java.io.File;
 import java.util.List;
 
 import com.fruit.bean.FruitDetail;
 import com.fruit.fruitonline.R;
-import com.fruit.util.file.FileUtil;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,13 +17,17 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class FruitListGridAdapter extends BaseAdapter {
+	
+	private ImageLoader _imageLoader;
+	
+	private DisplayImageOptions _options;
 
 	private List<FruitDetail> _list;
 	
-	private Handler _handler = new Handler();
-	
 	public FruitListGridAdapter(Context _context, List<FruitDetail> list) {
 		_list = list;
+		 _imageLoader = ImageLoader.getInstance();
+		_options = new DisplayImageOptions.Builder().showStubImage(R.drawable.ic_stub).showImageForEmptyUri(R.drawable.ic_empty).showImageOnFail(R.drawable.ic_error).cacheInMemory(true).cacheOnDisc(true).bitmapConfig(Bitmap.Config.RGB_565).build();
 	}
 
 	public int getCount() {
@@ -60,33 +62,7 @@ public class FruitListGridAdapter extends BaseAdapter {
 		final String imgUrlStr = fruitDetail.getImg();
 		String title = fruitDetail.getName();
 		viewHolder.titleView.setText(title);
-		final String imgNameMd5 = FileUtil.fileNameMd5(imgUrlStr);
-		if ((new File(FileUtil.sdCardPathImgStr + imgNameMd5)).exists()) {
-			Bitmap bitmap = BitmapFactory.decodeFile(FileUtil.sdCardPathImgStr + imgNameMd5);
-			if (bitmap != null) {
-				viewHolder.imgView.setImageBitmap(bitmap);
-			}
-			if(bitmap != null && bitmap.isRecycled()){
-				bitmap.recycle();
-		    }
-		} else {
-			new Thread(new Runnable() {
-				public void run() {
-					FileUtil.downloadFile2SD(imgUrlStr, FileUtil.sdCardPathImgStr + imgNameMd5, FileUtil.WRITE_NOREPLACE);
-					final Bitmap bitmap = BitmapFactory.decodeFile(FileUtil.sdCardPathImgStr + imgNameMd5);
-					if (bitmap != null) {
-						_handler.post(new Runnable() {
-							public void run() {
-								viewHolder.imgView.setImageBitmap(bitmap);
-							}
-						});
-					}
-					if(bitmap != null && bitmap.isRecycled()){
-						bitmap.recycle();
-				    }
-				}
-			}).start();
-		}
+		_imageLoader.displayImage(imgUrlStr, viewHolder.imgView, _options);
 
 		return convertView;
 	}

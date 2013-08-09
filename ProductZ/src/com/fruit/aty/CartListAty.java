@@ -61,8 +61,6 @@ public class CartListAty extends Activity {
 	
 	private ArrayList<FruitDetail> _fruitDetailList;
 	
-//	private Dialog _loadingDialog;
-	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		
